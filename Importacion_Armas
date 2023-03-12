@@ -1,0 +1,47 @@
+#primero vemos la ruta seleccionando el archivo
+file.choose()
+#Ya generada la ruta delacras la variable con esa ruta con un nombre
+ruta_armas <- "C:\\Users\\Usuario\\Desktop\\Everything\\db kAGGLE\\Importacion de Armas\\ImportacionNormslizado.xlsx"
+#para visuallizar la hoja de excel
+excel_sheets(ruta_armas)
+#para importarlo ademas lo zivualiza la tabla
+read_excel(ruta_armas)
+library(readxl)
+df <- read_excel(ruta_armas)
+# Leer el archivo y crear el data frame
+str(df)
+# Ver la estructura del data frame
+summary(df)
+# Resumen estadístico del data frame
+| Estadísticas descriptivas para una variable en particular
+mean(df$Importacion)
+sd(df$Importacion)
+median(df$Importacion)
+quantile(df$Importacion)
+
+# Gráfico de barras para una variable categórica
+barplot(table(df$Pais))
+
+# Gráfico de dispersión para dos variables numéricas
+plot(df$Años, df$Importacion)
+
+# Gráfico de líneas para una serie temporal
+plot(df$Años, df$Importacion, type = "l")
+
+# Correlación entre dos variables numéricas
+cor(df$Años, df$Importacion)
+
+# Modelo de regresión lineal
+modelo <- lm(Años ~ Importacion, data = df)
+summary(modelo)
+
+# Prueba t para comparar la media de dos grupos
+t.test(df$variable ~ df$grupo)
+
+# ANOVA para comparar las medias de tres o más grupos
+modelo_anova <- aov(variable ~ grupo, data = df)
+summary(modelo_anova)
+_____________
+acf(df)
+
+plot(df)
